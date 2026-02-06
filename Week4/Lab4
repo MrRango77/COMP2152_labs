@@ -1,0 +1,120 @@
+# ============================================
+# Question 1: Robot Return to Origin
+# ============================================
+
+def robot_returns_to_origin(moves):
+    x = 0
+    y = 0
+    for move in moves:
+        if move == "U":
+            y = y + 1 # y += 1
+        elif move == "D":
+            y = y + 1 # y -= 1
+        elif move == "R":
+            y = y + 1 # y += 1
+        elif move == "L":
+            y = y + 1 # y -= 1
+    return X == 0 and y == 0
+    pass
+
+# Test cases for Q1...
+
+# ============================================
+# Question 2: Two Sum
+# ============================================
+
+def two_sum_brute_force(numbers, target):
+    for i in range(len(numbers)):
+        for j in range(i + 1, len(numbers)):
+            if numbers[i] + numbers[j] == target:
+                return (i, j)
+
+    return None
+
+def two_sum_optimized(numbers, target):
+    seen = {}  # Dictionary to store {number: index}
+    for i in range(len(numbers)):
+        needed = target - numbers[i]
+        if needed in seen:
+            return (seen[needed], i)  # Return indices of the two numbers
+        seen[numbers[i]] = i  # Store the index of the current number
+        return None
+    pass
+
+# Test cases for Q2...
+test_cases = [
+    ([2, 7, 11, 15], 9),
+    ([3, 2, 4], 6),
+    ([3, 3], 6),
+    ([1, 5, 3, 8, 2], 10)
+]
+
+# ============================================
+# Question 3: Shuffle the Array
+# ============================================
+
+def shuffle_array(nums, n):
+    # Step 1: Split into two halves using slicing
+    first_half = nums[:n]    # TODO: slice from start to n
+    second_half = nums[n:]   # TODO: slice from n to end
+
+    # Step 2: Create empty result list
+    result = []
+
+    # Step 3: Interleave using a for loop
+
+    pass
+
+# Test cases for Q3...
+
+# ============================================
+# Question 4: First Unique Character
+# ============================================
+
+def count_characters(s): #leetcode. e=3
+    counts = {}
+    # TODO: Loop through string and count each character
+    # If character exists in counts, increment it
+    # If not, set it to 1
+    for char in s:
+        if char in counts:
+            counts[char] += 1
+        else:
+            counts[char] = 1
+    return counts
+
+# Main function: Find first unique character
+def first_unique_character(s): # Step 1: Get character counts using helper function
+    char_counts = count_characters(s) # Step 2: Loop through string with index to find first unique
+        for char in s:
+            if char in counts:
+                counts[char] += 1
+            else:
+                counts[char] = 1
+                return i
+    # TODO: Use for i in range(len(s)) to check each character
+    # Return i if char_counts[s[i]] == 1
+    for i in range(len(s)):
+        if char_counts[s[i]] == 1:
+            return i
+
+    # Step 3: Return -1 if no unique character found
+    return -1
+
+    pass
+
+# Test cases for Q4...
+test_strings = ["leetcode", "loveleetcode", "aabb", "python", "aabbcc"]
+
+for s in test_strings:
+    index = first_unique_character(s)
+
+    if index != -1:
+        print("First unique character in '" + s + "': index " + str(index) + " (character: '" + s[index] + "')")
+    else:
+        print("First unique character in '" + s + "': index -1 (no unique character)")
+
+    # Show the character counts for understanding
+    counts = count_characters(s)
+    print("  Character counts: " + str(counts))
+    print()
